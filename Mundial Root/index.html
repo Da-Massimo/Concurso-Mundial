@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Mundial Massimo — Regístrate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- =============================================
+     HERO
+     ============================================= -->
+<div class="hero">
+
+  <img src="img/logo.png" alt="Ristorante Da Massimo" class="hero-logo-img">
+  <!-- <div class="img-placeholder img-placeholder--logo">
+    <span class="img-placeholder__label">img/logo.png</span>
+    <span class="img-placeholder__size">200 x 80 px</span>
+  </div> -->
+
+  <div class="hero-badge">Concurso Oficial 2026</div>
+  <h1 class="hero-title">Mundial<br><span>Massimo</span></h1>
+  <p class="hero-sub">Regístrate, elige la selección que crees que será ganadora y entra al sorteo</p>
+
+  <div class="prize-pill">
+    <div class="prize-text">$10,000</div>
+    <div class="prize-label">en consumo &middot; Premio único</div>
+  </div>
+
+  <div class="ball-row">
+    <div class="ball"></div><div class="ball"></div><div class="ball"></div>
+    <div class="ball"></div><div class="ball"></div>
+  </div>
+</div>
+
+
+<!-- =============================================
+     BANNER DE PREMIO
+     ============================================= -->
+<div class="banner-premio">
+  <!-- <div class="img-placeholder img-placeholder--banner">
+    <span class="img-placeholder__label">img/banner-premio.jpg</span>
+    <span class="img-placeholder__size">390 x 180 px &mdash; foto del restaurante o del premio</span>
+  </div> -->
+  <img src="img/banner-premio.png" alt="Premio: $10,000 en consumo en Ristorante Da Massimo">
+</div>
+
+
+<!-- =============================================
+     FORMULARIO DE REGISTRO
+     ============================================= -->
+<div class="form-wrap">
+  <div class="form-card">
+
+    <!-- ── ALERTA: FOLIO YA REGISTRADO ── -->
+    <div class="folio-alert" id="folioAlert">
+      <div class="folio-alert__icon">!</div>
+      <div class="folio-alert__body">
+        <p class="folio-alert__title">Folio ya registrado</p>
+        <p class="folio-alert__msg">Este folio de ticket ya fue utilizado para una participación anterior. Verifica el número e inténtalo de nuevo.</p>
+      </div>
+      <button class="folio-alert__close" id="folioAlertClose" aria-label="Cerrar">&times;</button>
+    </div>
+
+    <form id="regForm" novalidate>
+
+      <div class="section-label">Datos del participante</div>
+
+      <div class="field-group">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre"
+               placeholder="ej. María González López" autocomplete="name">
+        <div class="field-error" id="err-nombre">Ingresa tu nombre completo.</div>
+      </div>
+
+      <div class="field-group">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono"
+               placeholder="10 dígitos" maxlength="15"
+               autocomplete="tel" inputmode="numeric">
+        <div class="field-error" id="err-telefono">Ingresa un número de teléfono válido.</div>
+      </div>
+
+      <div class="field-group">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo"
+               placeholder="tu@correo.com" autocomplete="email" inputmode="email">
+        <div class="field-error" id="err-correo">Ingresa un correo electrónico válido.</div>
+      </div>
+
+      <div class="section-label" style="margin-top:24px;">Tu selección</div>
+
+      <div class="field-group">
+        <label for="equipo">Vota por el país que crees que saldrá victorioso</label>
+        <div class="select-wrap">
+          <select id="equipo" name="equipo">
+            <option value="" disabled selected>-- Elige un país --</option>
+            <option>Alemania</option>
+            <option>Arabia Saudita</option>
+            <option>Argentina</option>
+            <option>Australia</option>
+            <option>Bélgica</option>
+            <option>Brasil</option>
+            <option>Camerún</option>
+            <option>Canadá</option>
+            <option>Corea del Sur</option>
+            <option>Costa Rica</option>
+            <option>Croacia</option>
+            <option>Dinamarca</option>
+            <option>Ecuador</option>
+            <option>España</option>
+            <option>Estados Unidos</option>
+            <option>Francia</option>
+            <option>Gales</option>
+            <option>Ghana</option>
+            <option>Inglaterra</option>
+            <option>Irán</option>
+            <option>Japón</option>
+            <option>Marruecos</option>
+            <option>México</option>
+            <option>Países Bajos</option>
+            <option>Polonia</option>
+            <option>Portugal</option>
+            <option>Qatar</option>
+            <option>Senegal</option>
+            <option>Serbia</option>
+            <option>Suiza</option>
+            <option>Túnez</option>
+            <option>Uruguay</option>
+          </select>
+        </div>
+        <div class="field-error" id="err-equipo">Selecciona un país.</div>
+      </div>
+
+      <div class="section-label" style="margin-top:24px;">Folio del ticket</div>
+
+      <div class="field-group">
+        <label for="folio">Folio de compra</label>
+        <div class="folio-wrap">
+          <span class="folio-icon">#</span>
+          <input type="text" id="folio" name="folio"
+                 placeholder="Número impreso en tu ticket" maxlength="20">
+        </div>
+        <p class="field-hint">Ingresa el folio que aparece en tu ticket de consumo. Cada folio es válido para un solo registro.</p>
+        <div class="field-error" id="err-folio">Ingresa el folio de tu ticket de compra.</div>
+      </div>
+
+      <button type="submit" class="cta-btn" id="submitBtn">
+        Registrarme al concurso
+      </button>
+
+      <p class="legal-note">
+        Al registrarte aceptas los
+        <a href="#" class="legal-link" id="openTerms">términos y condiciones</a>
+        del concurso. Premio válido en consumo en Ristorante Da Massimo.
+        No aplica con otras promociones.
+      </p>
+
+    </form>
+
+
+    <!-- =============================================
+         PANTALLA DE ÉXITO
+         ============================================= -->
+    <div class="success-screen" id="successScreen">
+
+      <h2 class="success-title">Registro exitoso</h2>
+      <p class="success-sub">
+        Tu participación ha sido confirmada. Guarda tu imagen de registro.
+      </p>
+
+      <!-- Tarjeta generada como imagen -->
+      <div class="tarjeta-wrap">
+        <img id="tarjetaImagen" src="" alt="Tarjeta de registro Mundial Massimo">
+        <p class="tarjeta-hint">
+          📱 <strong>Móvil:</strong> mantén presionada la imagen y elige "Guardar"<br>
+          🖥️ <strong>Computadora:</strong> clic derecho sobre la imagen → "Guardar imagen como"
+        </p>
+      </div>
+
+      <p class="success-sub" style="margin-top:16px;">
+        El sorteo se realizará al cierre del torneo.<br>
+        Suerte con <span id="successTeamInline" style="color:var(--vino);font-weight:700;"></span>.
+      </p>
+
+      <!-- Botón volver -->
+      <div class="success-actions">
+        <button class="action-btn action-btn--secondary" id="btnVolver">
+          Registrar a otra persona
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<!-- =============================================
+     MODAL: TÉRMINOS Y CONDICIONES
+     ============================================= -->
+<div class="modal-overlay" id="modalTerms">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="modal-title">Términos y Condiciones</h2>
+      <button class="modal-close" id="closeTerms" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="modal-body">
+
+      <p class="modal-intro">
+        Concurso <strong>Mundial Massimo 2026</strong> organizado por Ristorante Da Massimo,
+        Av. de las Américas 1213, Altamira, 45160 Zapopan, Jalisco, México.
+      </p>
+
+      <div class="terms-section">
+        <h3>1. Elegibilidad</h3>
+        <p>Pueden participar personas mayores de 18 años con ticket de consumo válido expedido por Ristorante Da Massimo durante el periodo del concurso.</p>
+      </div>
+
+      <div class="terms-section">
+        <h3>2. Mecánica de participación</h3>
+        <p>Cada ticket de consumo incluye un folio único impreso. El participante debe ingresar dicho folio en el formulario de registro junto con sus datos personales. Un mismo folio solo puede usarse para un registro. Cada registro genera un número de participación único vinculado al folio y a los datos del participante.</p>
+      </div>
+
+      <div class="terms-section">
+        <h3>3. Premio</h3>
+        <p>El premio consiste en <strong>$10,000 pesos en consumo</strong> dentro del Ristorante Da Massimo. El premio es intransferible, no es canjeable por efectivo y no es acumulable con otras promociones o descuentos vigentes.</p>
+      </div>
+
+      <div class="terms-section">
+        <h3>4. Sorteo</h3>
+        <p>El sorteo se realizará al concluir la fase final del torneo. El ganador será contactado a través de los datos proporcionados en el registro. Ristorante Da Massimo se reserva el derecho de verificar la autenticidad del folio y los datos del participante antes de entregar el premio.</p>
+      </div>
+
+      <div class="terms-section">
+        <h3>5. Reclamación del premio</h3>
+        <p>Para reclamar el premio, el ganador deberá presentar <strong>el ticket de consumo original</strong> correspondiente al folio registrado, o en su defecto una <strong>fotografía clara y legible del mismo</strong>. Sin este comprobante no será posible validar ni entregar el premio. Se recomienda conservar el ticket físico o fotografiarlo al momento de participar.</p>
+      </div>
+
+      <div class="terms-section">
+        <h3>6. Datos personales</h3>
+        <p>Los datos recabados (nombre, teléfono, correo electrónico) serán utilizados exclusivamente para la administración del concurso y la notificación al ganador. No serán compartidos con terceros ni utilizados con fines comerciales ajenos al concurso.</p>
+      </div>
+
+      <div class="terms-section">
+        <h3>7. Descalificación</h3>
+        <p>Se descalificará automáticamente a cualquier participante que presente folios duplicados, alterados o no expedidos por el restaurante, así como a quien proporcione información falsa o incompleta.</p>
+      </div>
+
+      <div class="terms-section">
+        <h3>8. Aceptación</h3>
+        <p>La participación en el concurso implica la aceptación total de estos términos y condiciones. Ristorante Da Massimo se reserva el derecho de modificar o cancelar el concurso en cualquier momento, notificando a los participantes a través de sus canales oficiales.</p>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="cta-btn" id="closeTermsBtn">Entendido</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>
+    <strong>Ristorante Da Massimo</strong> &middot; Concurso Mundial 2026<br>
+    Av. de las Américas 1213, Altamira, 45160 Zapopan, Jal. &middot; México
+  </p>
+</div>
+
+<!-- Canvas oculto para generar la tarjeta -->
+<canvas id="downloadCanvas" style="display:none;"></canvas>
+
+<script src="app.js"></script>
+</body>
+</html>

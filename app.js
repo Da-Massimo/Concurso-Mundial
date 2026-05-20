@@ -4,7 +4,7 @@
    ============================================= */
 
 // ── CAMBIA ESTA URL POR LA DE TU SCRIPT ──────
-var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwv8BGvJeDyl0WMHSWIH7f_sapqDmfAKVSPnGlVZKMCSi5DmNQ8q0yR01vJNyoMqhex/exec';
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFp2xJxFXoHQicJCv1bqVACVJXt8DSQw_jy5SAAUkIbjxZbNCK3GnoAE9vWWSeGi9JxQ/exec';
 // ─────────────────────────────────────────────
 
 var form          = document.getElementById('regForm');

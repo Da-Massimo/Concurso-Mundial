@@ -4,7 +4,7 @@
    ============================================= */
 
 // ── CAMBIA ESTA URL POR LA DE TU SCRIPT ──────
-var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFp2xJxFXoHQicJCv1bqVACVJXt8DSQw_jy5SAAUkIbjxZbNCK3GnoAE9vWWSeGi9JxQ/exec';
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyq4urQWmes7MjS7xYXXakIx0Mtq_CjwXLOVn7uQ37OINGe7BwrCjLKrd_gzLUAkpTOrg/exec';
 // ─────────────────────────────────────────────
 
 var form          = document.getElementById('regForm');
@@ -368,7 +368,7 @@ form.addEventListener('submit', function(e) {
   })
   .then(function(data) {
 
-    if (data.ok) {
+    if (data.ok || (data.error === 'FOLIO_DUPLICADO' && folio === 'PRUEBA')) {
       // Generar y mostrar la tarjeta como imagen
       generarTarjeta(codigo, folio, equipo);
 
